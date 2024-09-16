@@ -1,0 +1,16 @@
+[
+  {
+    "Id": "d3b07384-d9a0-4c9b-8f3d-2b0a7b8b8b8b",
+    "Title": "CSharp (1/5): Introduction au CSharp",
+    "Description": "Description : Dans ce premier live, nous allons découcrir le C#, et Visual Studio. Vous découvrirez les bases de la programmation en C#, y compris la syntaxe, les types de données, les variables et les opérateurs. Vous apprendrez également comment configurer votre environnement de développement pour commencer à coder en C#.",
+    "Url": "https://app.studi.fr/v3/events/73528/stream",
+    "IdSerie": null
+  },
+  {
+    "Id": "e4b07384-d9a0-4c9b-8f3d-2b0a7b8b8b8b",
+    "Title": "CSharp (2/5): Conditions et boucles",
+    "Description": "Description : Lors de ce deuxième live, nous explorerons les structures de contrôle en C#",
+    "Url": "https://app.studi.fr/v3/events/73529/stream",
+    "IdSerie": null
+  }
+]
