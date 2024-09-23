@@ -1,1 +1,44 @@
-[{"Id":"d3b07384-d9a0-4c9b-8f3d-2b0a7b8b8b8b","Title":"CSharp (1/5): Introduction au CSharp","Description":"Description : Dans ce premier live, nous allons d\u00E9coucrir le C#, et Visual Studio. Vous d\u00E9couvrirez les bases de la programmation en C#, y compris la syntaxe, les types de donn\u00E9es, les variables et les op\u00E9rateurs. Vous apprendrez \u00E9galement comment configurer votre environnement de d\u00E9veloppement pour commencer \u00E0 coder en C#.","Url":"https://app.studi.fr/v3/events/73528/stream","IdSerie":null},{"Id":"e4b07384-d9a0-4c9b-8f3d-2b0a7b8b8b8b","Title":"CSharp (2/5): Conditions et boucles","Description":"Description : Lors de ce deuxi\u00E8me live, nous explorerons les structures de contr\u00F4le en C#","Url":"https://app.studi.fr/v3/events/73529/stream","IdSerie":null},{"Id":"bbd02e32-8ef8-4129-ac66-37ace1861a3d","Title":"CSharp (3/5): Les tableaux et les listes","Description":"Dans ce troisi\u00E8me live, nous aborderons les tableaux et les listes en C#. Vous apprendrez \u00E0 stocker et manipuler des collections de donn\u00E9es \u00E0 l\u0027aide de tableaux et de listes g\u00E9n\u00E9riques. Nous verrons comment acc\u00E9der aux \u00E9l\u00E9ments, ajouter, supprimer et trier des donn\u00E9es dans ces structures de donn\u00E9es.","Url":"https://app.studi.fr/v3/events/73530/stream","IdSerie":null},{"Id":"5940b429-7a93-4fdc-bcc1-1a2aa1f93e8e","Title":"test","Description":"test","Url":"test","IdSerie":null},{"Id":"fd79e066-d0b4-482a-80c3-e6ee21392e8d","Title":"test 2","Description":"test","Url":"test","IdSerie":null},{"Id":"eaa8f443-ff3f-4f0c-97f5-5c12b691c652","Title":"test 3","Description":"tests","Url":"test","IdSerie":null}]
+[
+  {
+    "Id": "d3b07384-d9a0-4c9b-8f3d-2b0a7b8b8b8b",
+    "Title": "CSharp (1/5): Introduction au CSharp",
+    "Description": "Description : Dans ce premier live, nous allons d\u00E9coucrir le C#, et Visual Studio. Vous d\u00E9couvrirez les bases de la programmation en C#, y compris la syntaxe, les types de donn\u00E9es, les variables et les op\u00E9rateurs. Vous apprendrez \u00E9galement comment configurer votre environnement de d\u00E9veloppement pour commencer \u00E0 coder en C#.",
+    "Url": "https://app.studi.fr/v3/events/73528/stream",
+    "IdSerie": null
+  },
+  {
+    "Id": "e4b07384-d9a0-4c9b-8f3d-2b0a7b8b8b8b",
+    "Title": "CSharp (2/5): Conditions et boucles",
+    "Description": "Description : Lors de ce deuxi\u00E8me live, nous explorerons les structures de contr\u00F4le en C#",
+    "Url": "https://app.studi.fr/v3/events/73529/stream",
+    "IdSerie": null
+  },
+  {
+    "Id": "bbd02e32-8ef8-4129-ac66-37ace1861a3d",
+    "Title": "CSharp (3/5): Les tableaux et les listes",
+    "Description": "Dans ce troisi\u00E8me live, nous aborderons les tableaux et les listes en C#. Vous apprendrez \u00E0 stocker et manipuler des collections de donn\u00E9es \u00E0 l\u0027aide de tableaux et de listes g\u00E9n\u00E9riques. Nous verrons comment acc\u00E9der aux \u00E9l\u00E9ments, ajouter, supprimer et trier des donn\u00E9es dans ces structures de donn\u00E9es.",
+    "Url": "https://app.studi.fr/v3/events/73530/stream",
+    "IdSerie": null
+  },
+  {
+    "Id": "5940b429-7a93-4fdc-bcc1-1a2aa1f93e8e",
+    "Title": "test",
+    "Description": "test",
+    "Url": "test",
+    "IdSerie": null
+  },
+  {
+    "Id": "fd79e066-d0b4-482a-80c3-e6ee21392e8d",
+    "Title": "test 2",
+    "Description": "test",
+    "Url": "test",
+    "IdSerie": null
+  },
+  {
+    "Id": "eaa8f443-ff3f-4f0c-97f5-5c12b691c652",
+    "Title": "test 3",
+    "Description": "tests",
+    "Url": "test",
+    "IdSerie": null
+  }
+]

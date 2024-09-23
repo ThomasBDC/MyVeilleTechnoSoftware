@@ -23,19 +23,36 @@ namespace MyVeilleTechnoSoftware.Repository
             return allLinks;
         }
 
-        public static void ProposeToUserToOpenLink(List<LinkModel> allLinks)
+        public static List<LinkModel> SearchLinks(List<LinkModel> maListe, string recherche)
+        {
+            var maRequete = from link in maListe
+                            where link.Title.Contains(recherche, StringComparison.CurrentCultureIgnoreCase)
+                            || link.Description.Contains(recherche, StringComparison.CurrentCultureIgnoreCase)
+                            select link;
+
+            return maRequete.ToList();
+        }
+
+        public static void OpenLink(LinkModel link)
+        {
+            UtilsTools.OpenBrowser(link.Url);
+        }
+
+        public static LinkModel ProposeToUserToSelectLink(List<LinkModel> allLinks)
         {
             foreach (var link in allLinks)
             {
                 Console.WriteLine(allLinks.IndexOf(link) + " : " + link.Title);
                 Console.WriteLine("");
             }
-            Console.WriteLine("Quel lien voulez-vous ouvrir ?");
+            Console.WriteLine("Quel lien voulez-vous sélectionner ?");
             var response = Console.ReadLine();
 
             int indexToOpen = 0;
             indexToOpen = int.Parse(response);
-            UtilsTools.OpenBrowser(allLinks[indexToOpen].Url);
+            var selectLink = allLinks[indexToOpen];
+
+            return selectLink;
         }
 
         public static void CreateLinkScreen()
