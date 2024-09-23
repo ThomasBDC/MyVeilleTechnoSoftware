@@ -92,5 +92,22 @@ namespace MyVeilleTechnoSoftware.Repository
             //JSON -> Ecraser le fichier
             File.WriteAllText(pathLinksJson, updatedJson);
         }
+
+
+        public static void DeleteLink(LinkModel model)
+        {
+            //Je récupère tous mes liens
+            var allLinks = GetAllLinks();
+
+            //Je recherche tous les éléments avec un id différent de mon élément à supprimer
+            //On fait la même liste, mais avec notre élément en moins
+            var newListOfAllLinks = allLinks.Where(link => link.Id != model.Id).ToList();
+
+            //allLinks -> JSON
+            string updatedJson = JsonSerializer.Serialize(newListOfAllLinks);
+
+            //JSON -> Ecraser le fichier
+            File.WriteAllText(pathLinksJson, updatedJson);
+        }
     }
 }

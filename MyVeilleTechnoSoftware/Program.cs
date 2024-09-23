@@ -71,7 +71,13 @@ void App()
                 case "1": 
                     break;
                 case "2":
-                    
+                    LinksRepository.DeleteLink(selectLink);
+
+
+                    Console.WriteLine("");
+                    Console.WriteLine("Le lien a bien été suprimé.");
+                    Console.WriteLine("");
+                    Console.WriteLine("");
                     break;
                 case "3":
                     LinksRepository.OpenLink(selectLink);
