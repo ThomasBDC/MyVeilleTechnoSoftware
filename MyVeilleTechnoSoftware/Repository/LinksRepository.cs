@@ -53,6 +53,12 @@ namespace MyVeilleTechnoSoftware.Repository
             var monLien = new LinkModel(Guid.NewGuid(), nomLien, urlLien, descriptionLien);
 
             CreateLink(monLien);
+
+
+            Console.WriteLine("");
+            Console.WriteLine("Le lien a bien été créé.");
+            Console.WriteLine("");
+            Console.WriteLine("");
         }
 
         public static void CreateLink(LinkModel model)
@@ -66,15 +72,8 @@ namespace MyVeilleTechnoSoftware.Repository
             //allLinks -> JSON
             string updatedJson = JsonSerializer.Serialize(allLinks);
 
-            try
-            {
-                //JSON -> Ecraser le fichier
-                File.WriteAllText(pathLinksJson, updatedJson);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
+            //JSON -> Ecraser le fichier
+            File.WriteAllText(pathLinksJson, updatedJson);
         }
     }
 }
