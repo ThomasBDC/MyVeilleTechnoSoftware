@@ -45,14 +45,21 @@ namespace MyVeilleTechnoSoftware.Repository
                 Console.WriteLine(allLinks.IndexOf(link) + " : " + link.Title);
                 Console.WriteLine("");
             }
-            Console.WriteLine("Quel lien voulez-vous sélectionner ?");
+            Console.WriteLine("Quel lien voulez-vous sélectionner ? tapez 'q' pour quitter");
             var response = Console.ReadLine();
 
-            int indexToOpen = 0;
-            indexToOpen = int.Parse(response);
-            var selectLink = allLinks[indexToOpen];
+            if (string.Equals(response, "q", StringComparison.CurrentCultureIgnoreCase))
+            {
+                return null;
+            }
+            else
+            {
+                int indexToOpen = 0;
+                indexToOpen = int.Parse(response);
+                var selectLink = allLinks[indexToOpen];
 
-            return selectLink;
+                return selectLink;
+            }
         }
 
         public static void CreateLinkScreen()
