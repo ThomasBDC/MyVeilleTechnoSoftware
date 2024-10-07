@@ -27,7 +27,8 @@ void App()
     Console.WriteLine("Que voulez-vous faire ? ");
     Console.WriteLine("1 - Consulter les liens");
     Console.WriteLine("2 - Créer un lien");
-    Console.WriteLine("3 - Quitter l'application");
+    Console.WriteLine("3 - Consulter les séries");
+    Console.WriteLine("4 - Quitter l'application");
 
     var response = Console.ReadLine();
 
@@ -67,6 +68,15 @@ void App()
             LinksRepository.CreateLinkScreen();
             break;
         case "3":
+            //Afficher les séries du document JSON
+            var allSeries = SeriesRepository.GetAllSeries();
+
+            foreach (var serie in allSeries)
+            {
+                Console.WriteLine(serie.Title);
+            }
+            break;
+        case "4":
             userContinue = false;
             break;
     }
