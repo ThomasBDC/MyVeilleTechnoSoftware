@@ -58,47 +58,41 @@ namespace MyVeilleTechnoSoftware.Repository
 			}
 		}
 
-		//        return selectLink;
-		//    }
-		//}
 
-		//public static void CreateLinkScreen()
-		//{
-		//    Console.WriteLine("Nom du lien :");
-		//    string nomLien = Console.ReadLine();
+		public static void CreateSerieScreen()
+		{
+			Console.WriteLine("Nom de la serie :");
+			string nomSerie = Console.ReadLine();
 
-		//    Console.WriteLine("Description du lien :");
-		//    string descriptionLien = Console.ReadLine();
+			Console.WriteLine("Description de la serie :");
+			string descriptionSerie = Console.ReadLine();
 
-		//    Console.WriteLine("Url du lien :");
-		//    string urlLien = Console.ReadLine();
+			//Objet à créer dans mon JSON
+			var monSerie = new SerieModel(Guid.NewGuid(), nomSerie, descriptionSerie);
 
-		//    //Objet à créer dans mon JSON
-		//    var monLien = new LinkModel(Guid.NewGuid(), nomLien, urlLien, descriptionLien);
-
-		//    CreateLink(monLien);
+			CreateSerie(monSerie);
 
 
-		//    Console.WriteLine("");
-		//    Console.WriteLine("Le lien a bien été créé.");
-		//    Console.WriteLine("");
-		//    Console.WriteLine("");
-		//}
+			Console.WriteLine("");
+			Console.WriteLine("La serie a bien été créée.");
+			Console.WriteLine("");
+			Console.WriteLine("");
+		}
 
-		//public static void CreateLink(LinkModel model)
-		//{
-		//    //Je récupère tous mes liens
-		//    var allLinks = GetAllLinks();
+		public static void CreateSerie(SerieModel model)
+		{
+			//Je récupère tous mes series
+			var allSeries = GetAllSeries();
 
-		//    //J'ajoute le nouveau lien à ma liste
-		//    allLinks.Add(model);
+			//J'ajoute le nouveau lien à ma liste
+			allSeries.Add(model);
 
-		//    //allLinks -> JSON
-		//    string updatedJson = JsonSerializer.Serialize(allLinks);
+			//allLinks -> JSON
+			string updatedJson = JsonSerializer.Serialize(allSeries);
 
-		//    //JSON -> Ecraser le fichier
-		//    File.WriteAllText(pathSeriesJson, updatedJson);
-		//}
+			//JSON -> Ecraser le fichier
+			File.WriteAllText(pathSeriesJson, updatedJson);
+		}
 
 
 		//public static void DeleteLink(LinkModel model)

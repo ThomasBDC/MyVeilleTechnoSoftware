@@ -28,7 +28,8 @@ void App()
     Console.WriteLine("1 - Consulter les liens");
     Console.WriteLine("2 - Créer un lien");
     Console.WriteLine("3 - Consulter les séries");
-    Console.WriteLine("300 - Quitter l'application");
+    Console.WriteLine("4 - Créer une série");
+	Console.WriteLine("300 - Quitter l'application");
 
     var response = Console.ReadLine();
 
@@ -73,12 +74,18 @@ void App()
 
 			var selectSerie = SeriesRepository.ProposeToUserToSelectSerie(allSeries);
             //Récupérer les liens liés à cette série, et les afficher
+            if (selectSerie != null)
+            {
+                var linksSeries = LinksRepository.GetAllLinks().Where(link => link.IdSerie == selectSerie.Id).ToList();
+			    var selectLinkFromSeries = LinksRepository.ProposeToUserToSelectLink(linksSeries);
+			}
 
-            var linksSeries = LinksRepository.GetAllLinks().Where(link => link.IdSerie == selectSerie.Id).ToList();
-
-			var selectLinkFromSeries = LinksRepository.ProposeToUserToSelectLink(linksSeries);
 			break;
-        case "300":
+		case "4":
+			//Permettre à l'utilisateur de créer un lien (et de l'ajouter au fichier JSON)
+			SeriesRepository.CreateSerieScreen();
+			break;
+		case "300":
             userContinue = false;
             break;
     }
