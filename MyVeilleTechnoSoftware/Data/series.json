@@ -5,6 +5,11 @@
     "Description": "Description : Série pour apprendre l'algo avec le C#'"
   },
   {
+    "Id": "c1bb71c7-a011-42fc-b6a1-392e9e194425",
+    "Title": "CSharp avancé",
+    "Description": "Description : Série pour pratiquer le C# en console."
+  },
+  {
     "Id": "fd79e066-d0b4-482a-80c3-e6ee21392e8d",
     "Title": "test",
     "Description": "test"

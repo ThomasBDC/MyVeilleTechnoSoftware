@@ -28,7 +28,7 @@ void App()
     Console.WriteLine("1 - Consulter les liens");
     Console.WriteLine("2 - Créer un lien");
     Console.WriteLine("3 - Consulter les séries");
-    Console.WriteLine("4 - Quitter l'application");
+    Console.WriteLine("300 - Quitter l'application");
 
     var response = Console.ReadLine();
 
@@ -78,7 +78,7 @@ void App()
 
 			var selectLinkFromSeries = LinksRepository.ProposeToUserToSelectLink(linksSeries);
 			break;
-        case "4":
+        case "300":
             userContinue = false;
             break;
     }
@@ -102,7 +102,8 @@ bool ShowSelectedLinkAndGetIfUserWantToGoBackToResearch(LinkModel selectedLink)
     Console.WriteLine("1 - Modifier le lien");
     Console.WriteLine("2 - Supprimer le lien");
     Console.WriteLine("3 - Ouvrir le lien");
-    Console.WriteLine("4 - Retour");
+    Console.WriteLine("4 - Ajouter à une série");
+    Console.WriteLine("300 - Retour");
     var responseSelectLink = Console.ReadLine();
 
     switch (responseSelectLink)
@@ -123,6 +124,15 @@ bool ShowSelectedLinkAndGetIfUserWantToGoBackToResearch(LinkModel selectedLink)
             wantToGoBackToSearch = true;
             break;
         case "4":
+			//Ajouter le lien à une série
+			var selectSerie = SeriesRepository.ProposeToUserToSelectSerie(SeriesRepository.GetAllSeries());
+			selectedLink.IdSerie = selectSerie.Id;
+
+            //MàJ du lien (pas propre, mais ça fait le boulot)
+            LinksRepository.DeleteLink(selectedLink);
+            LinksRepository.CreateLink(selectedLink);
+			break;
+        case "300":
             //Essayer de réafficher les résultats de la recherche
             wantToGoBackToSearch = true;
             break;
