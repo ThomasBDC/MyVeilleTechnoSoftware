@@ -9,7 +9,7 @@ namespace MyVeilleTechnoSoftware.Models
     public class SerieModel
     {
         //L'erreur est dans le constructeur
-        public SerieModel(Guid id, string title, string url, string? description = null)
+        public SerieModel(Guid id, string title, string? description = null)
         {
             Id = id;
             Title = title;

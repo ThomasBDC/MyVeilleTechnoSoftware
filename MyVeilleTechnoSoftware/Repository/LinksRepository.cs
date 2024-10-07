@@ -37,8 +37,8 @@ namespace MyVeilleTechnoSoftware.Repository
         {
             UtilsTools.OpenBrowser(link.Url);
         }
-
-        public static LinkModel ProposeToUserToSelectLink(List<LinkModel> allLinks)
+		
+		public static LinkModel ProposeToUserToSelectLink(List<LinkModel> allLinks)
         {
             foreach (var link in allLinks)
             {
@@ -99,7 +99,6 @@ namespace MyVeilleTechnoSoftware.Repository
             //JSON -> Ecraser le fichier
             File.WriteAllText(pathLinksJson, updatedJson);
         }
-
 
         public static void DeleteLink(LinkModel model)
         {

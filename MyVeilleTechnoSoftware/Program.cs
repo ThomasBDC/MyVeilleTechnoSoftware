@@ -71,11 +71,13 @@ void App()
             //Afficher les séries du document JSON
             var allSeries = SeriesRepository.GetAllSeries();
 
-            foreach (var serie in allSeries)
-            {
-                Console.WriteLine(serie.Title);
-            }
-            break;
+			var selectSerie = SeriesRepository.ProposeToUserToSelectSerie(allSeries);
+            //Récupérer les liens liés à cette série, et les afficher
+
+            var linksSeries = LinksRepository.GetAllLinks().Where(link => link.IdSerie == selectSerie.Id).ToList();
+
+			var selectLinkFromSeries = LinksRepository.ProposeToUserToSelectLink(linksSeries);
+			break;
         case "4":
             userContinue = false;
             break;

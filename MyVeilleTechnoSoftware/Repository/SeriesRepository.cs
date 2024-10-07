@@ -23,94 +23,98 @@ namespace MyVeilleTechnoSoftware.Repository
             return allSeries;
         }
 
-        //public static List<LinkModel> SearchLinks(List<LinkModel> maListe, string recherche)
-        //{
-        //    var maRequete = from link in maListe
-        //                    where link.Title.Contains(recherche, StringComparison.CurrentCultureIgnoreCase)
-        //                    || link.Description.Contains(recherche, StringComparison.CurrentCultureIgnoreCase)
-        //                    select link;
+		//public static List<LinkModel> SearchLinks(List<LinkModel> maListe, string recherche)
+		//{
+		//    var maRequete = from link in maListe
+		//                    where link.Title.Contains(recherche, StringComparison.CurrentCultureIgnoreCase)
+		//                    || link.Description.Contains(recherche, StringComparison.CurrentCultureIgnoreCase)
+		//                    select link;
 
-        //    return maRequete.ToList();
-        //}
-
-
-        //public static LinkModel ProposeToUserToSelectLink(List<LinkModel> allLinks)
-        //{
-        //    foreach (var link in allLinks)
-        //    {
-        //        Console.WriteLine(allLinks.IndexOf(link) + " : " + link.Title);
-        //        Console.WriteLine("");
-        //    }
-        //    Console.WriteLine("Quel lien voulez-vous sélectionner ? tapez 'q' pour quitter");
-        //    var response = Console.ReadLine();
-
-        //    if (string.Equals(response, "q", StringComparison.CurrentCultureIgnoreCase))
-        //    {
-        //        return null;
-        //    }
-        //    else
-        //    {
-        //        int indexToOpen = 0;
-        //        indexToOpen = int.Parse(response);
-        //        var selectLink = allLinks[indexToOpen];
-
-        //        return selectLink;
-        //    }
-        //}
-
-        //public static void CreateLinkScreen()
-        //{
-        //    Console.WriteLine("Nom du lien :");
-        //    string nomLien = Console.ReadLine();
-
-        //    Console.WriteLine("Description du lien :");
-        //    string descriptionLien = Console.ReadLine();
-
-        //    Console.WriteLine("Url du lien :");
-        //    string urlLien = Console.ReadLine();
-
-        //    //Objet à créer dans mon JSON
-        //    var monLien = new LinkModel(Guid.NewGuid(), nomLien, urlLien, descriptionLien);
-
-        //    CreateLink(monLien);
+		//    return maRequete.ToList();
+		//}
 
 
-        //    Console.WriteLine("");
-        //    Console.WriteLine("Le lien a bien été créé.");
-        //    Console.WriteLine("");
-        //    Console.WriteLine("");
-        //}
+		public static SerieModel ProposeToUserToSelectSerie(List<SerieModel> allSeries)
+		{
+			foreach (var serie in allSeries)
+			{
+				Console.WriteLine(allSeries.IndexOf(serie) + " : " + serie.Title);
+				Console.WriteLine("");
+			}
+			Console.WriteLine("Quel série voulez-vous sélectionner ? tapez 'q' pour quitter");
+			var response = Console.ReadLine();
 
-        //public static void CreateLink(LinkModel model)
-        //{
-        //    //Je récupère tous mes liens
-        //    var allLinks = GetAllLinks();
+			if (string.Equals(response, "q", StringComparison.CurrentCultureIgnoreCase))
+			{
+				return null;
+			}
+			else
+			{
+				int indexToOpen = 0;
+				indexToOpen = int.Parse(response);
+				var selectLink = allSeries[indexToOpen];
 
-        //    //J'ajoute le nouveau lien à ma liste
-        //    allLinks.Add(model);
+				return selectLink;
+			}
+		}
 
-        //    //allLinks -> JSON
-        //    string updatedJson = JsonSerializer.Serialize(allLinks);
+		//        return selectLink;
+		//    }
+		//}
 
-        //    //JSON -> Ecraser le fichier
-        //    File.WriteAllText(pathSeriesJson, updatedJson);
-        //}
+		//public static void CreateLinkScreen()
+		//{
+		//    Console.WriteLine("Nom du lien :");
+		//    string nomLien = Console.ReadLine();
+
+		//    Console.WriteLine("Description du lien :");
+		//    string descriptionLien = Console.ReadLine();
+
+		//    Console.WriteLine("Url du lien :");
+		//    string urlLien = Console.ReadLine();
+
+		//    //Objet à créer dans mon JSON
+		//    var monLien = new LinkModel(Guid.NewGuid(), nomLien, urlLien, descriptionLien);
+
+		//    CreateLink(monLien);
 
 
-        //public static void DeleteLink(LinkModel model)
-        //{
-        //    //Je récupère tous mes liens
-        //    var allLinks = GetAllLinks();
+		//    Console.WriteLine("");
+		//    Console.WriteLine("Le lien a bien été créé.");
+		//    Console.WriteLine("");
+		//    Console.WriteLine("");
+		//}
 
-        //    //Je recherche tous les éléments avec un id différent de mon élément à supprimer
-        //    //On fait la même liste, mais avec notre élément en moins
-        //    var newListOfAllLinks = allLinks.Where(link => link.Id != model.Id).ToList();
+		//public static void CreateLink(LinkModel model)
+		//{
+		//    //Je récupère tous mes liens
+		//    var allLinks = GetAllLinks();
 
-        //    //allLinks -> JSON
-        //    string updatedJson = JsonSerializer.Serialize(newListOfAllLinks);
+		//    //J'ajoute le nouveau lien à ma liste
+		//    allLinks.Add(model);
 
-        //    //JSON -> Ecraser le fichier
-        //    File.WriteAllText(pathSeriesJson, updatedJson);
-        //}
-    }
+		//    //allLinks -> JSON
+		//    string updatedJson = JsonSerializer.Serialize(allLinks);
+
+		//    //JSON -> Ecraser le fichier
+		//    File.WriteAllText(pathSeriesJson, updatedJson);
+		//}
+
+
+		//public static void DeleteLink(LinkModel model)
+		//{
+		//    //Je récupère tous mes liens
+		//    var allLinks = GetAllLinks();
+
+		//    //Je recherche tous les éléments avec un id différent de mon élément à supprimer
+		//    //On fait la même liste, mais avec notre élément en moins
+		//    var newListOfAllLinks = allLinks.Where(link => link.Id != model.Id).ToList();
+
+		//    //allLinks -> JSON
+		//    string updatedJson = JsonSerializer.Serialize(newListOfAllLinks);
+
+		//    //JSON -> Ecraser le fichier
+		//    File.WriteAllText(pathSeriesJson, updatedJson);
+		//}
+	}
 }
