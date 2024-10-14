@@ -5,6 +5,7 @@ using MyVeilleTechnoSoftware.Models;
 using MyVeilleTechnoSoftware.Utils;
 using MyVeilleTechnoSoftware.Repository;
 using System.Transactions;
+using MyVeilleTechnoSoftware.Hmi;
 
 bool userContinue = true;
 while (userContinue)
@@ -51,14 +52,14 @@ void App()
             {
                 Console.Clear();
                 //Proposer à l'utilisateur de choisir un lien 
-                var selectLink = LinksRepository.ProposeToUserToSelectLink(linksFiltered);
+                var selectLink = LinksHMI.ProposeToUserToSelectLink(linksFiltered);
                 if (selectLink == null)
                 {
                     userStayInResearchMode = false;
                 }
                 else
                 { 
-                  userStayInResearchMode = ShowSelectedLinkAndGetIfUserWantToGoBackToResearch(selectLink);
+                  userStayInResearchMode = LinksHMI.LinkDetailMenu(selectLink);
                 }
             }
             
@@ -66,86 +67,27 @@ void App()
             break;
         case "2":
             //Permettre à l'utilisateur de créer un lien (et de l'ajouter au fichier JSON)
-            LinksRepository.CreateLinkScreen();
+            LinksHMI.CreateLinkScreen();
             break;
         case "3":
             //Afficher les séries du document JSON
             var allSeries = SeriesRepository.GetAllSeries();
 
-			var selectSerie = SeriesRepository.ProposeToUserToSelectSerie(allSeries);
+			var selectSerie = SeriesHMI.ProposeToUserToSelectSerie(allSeries);
             //Récupérer les liens liés à cette série, et les afficher
             if (selectSerie != null)
             {
                 var linksSeries = LinksRepository.GetAllLinks().Where(link => link.IdSerie == selectSerie.Id).ToList();
-			    var selectLinkFromSeries = LinksRepository.ProposeToUserToSelectLink(linksSeries);
+			    var selectLinkFromSeries = LinksHMI.ProposeToUserToSelectLink(linksSeries);
 			}
 
 			break;
 		case "4":
 			//Permettre à l'utilisateur de créer un lien (et de l'ajouter au fichier JSON)
-			SeriesRepository.CreateSerieScreen();
+			SeriesHMI.CreateSerieScreen();
 			break;
 		case "300":
             userContinue = false;
             break;
     }
-}
-
-bool ShowSelectedLinkAndGetIfUserWantToGoBackToResearch(LinkModel selectedLink)
-{
-    bool wantToGoBackToSearch = false;
-    Console.Clear();
-    Console.WriteLine("Lien sélectionné : " + selectedLink.Title);
-    Console.WriteLine("");
-
-    Console.WriteLine("Description : " + selectedLink.Description);
-    Console.WriteLine("");
-
-    Console.WriteLine("Url : " + selectedLink.Url);
-    Console.WriteLine("");
-    Console.WriteLine("");
-
-    Console.WriteLine("Que voulez-vous faire ? ");
-    Console.WriteLine("1 - Modifier le lien");
-    Console.WriteLine("2 - Supprimer le lien");
-    Console.WriteLine("3 - Ouvrir le lien");
-    Console.WriteLine("4 - Ajouter à une série");
-    Console.WriteLine("300 - Retour");
-    var responseSelectLink = Console.ReadLine();
-
-    switch (responseSelectLink)
-    {
-        case "1":
-            break;
-        case "2":
-            LinksRepository.DeleteLink(selectedLink);
-
-
-            Console.WriteLine("");
-            Console.WriteLine("Le lien a bien été suprimé.");
-            Console.WriteLine("");
-            Console.WriteLine("");
-            break;
-        case "3":
-            LinksRepository.OpenLink(selectedLink);
-            wantToGoBackToSearch = true;
-            break;
-        case "4":
-			//Ajouter le lien à une série
-			var selectSerie = SeriesRepository.ProposeToUserToSelectSerie(SeriesRepository.GetAllSeries());
-			selectedLink.IdSerie = selectSerie.Id;
-
-            //MàJ du lien (pas propre, mais ça fait le boulot)
-            LinksRepository.DeleteLink(selectedLink);
-            LinksRepository.CreateLink(selectedLink);
-			break;
-        case "300":
-            //Essayer de réafficher les résultats de la recherche
-            wantToGoBackToSearch = true;
-            break;
-        default:
-            Console.WriteLine("Pas compris, retour à la page d'accueil");
-            break;
-    }
-    return wantToGoBackToSearch;
 }

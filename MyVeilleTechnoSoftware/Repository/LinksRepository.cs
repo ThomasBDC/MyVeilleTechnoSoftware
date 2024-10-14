@@ -9,6 +9,7 @@ namespace MyVeilleTechnoSoftware.Repository
     public static class LinksRepository
     {
         private static string pathLinksJson = "C:\\Users\\Thomas BDC\\source\\repos\\MyVeilleTechnoSoftware\\MyVeilleTechnoSoftware\\Data\\links.json";
+
         public static List<LinkModel> GetAllLinks()
         {
             List<LinkModel> allLinks = new List<LinkModel>();
@@ -31,58 +32,6 @@ namespace MyVeilleTechnoSoftware.Repository
                             select link;
 
             return maRequete.ToList();
-        }
-
-        public static void OpenLink(LinkModel link)
-        {
-            UtilsTools.OpenBrowser(link.Url);
-        }
-		
-		public static LinkModel ProposeToUserToSelectLink(List<LinkModel> allLinks)
-        {
-            foreach (var link in allLinks)
-            {
-                Console.WriteLine(allLinks.IndexOf(link) + " : " + link.Title);
-                Console.WriteLine("");
-            }
-            Console.WriteLine("Quel lien voulez-vous sélectionner ? tapez 'q' pour quitter");
-            var response = Console.ReadLine();
-
-            if (string.Equals(response, "q", StringComparison.CurrentCultureIgnoreCase))
-            {
-                return null;
-            }
-            else
-            {
-                int indexToOpen = 0;
-                indexToOpen = int.Parse(response);
-                var selectLink = allLinks[indexToOpen];
-
-                return selectLink;
-            }
-        }
-
-        public static void CreateLinkScreen()
-        {
-            Console.WriteLine("Nom du lien :");
-            string nomLien = Console.ReadLine();
-
-            Console.WriteLine("Description du lien :");
-            string descriptionLien = Console.ReadLine();
-
-            Console.WriteLine("Url du lien :");
-            string urlLien = Console.ReadLine();
-
-            //Objet à créer dans mon JSON
-            var monLien = new LinkModel(Guid.NewGuid(), nomLien, urlLien, descriptionLien);
-
-            CreateLink(monLien);
-
-
-            Console.WriteLine("");
-            Console.WriteLine("Le lien a bien été créé.");
-            Console.WriteLine("");
-            Console.WriteLine("");
         }
 
         public static void CreateLink(LinkModel model)
