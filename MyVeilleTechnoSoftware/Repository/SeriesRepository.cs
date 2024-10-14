@@ -38,5 +38,21 @@ namespace MyVeilleTechnoSoftware.Repository
 			//JSON -> Ecraser le fichier
 			File.WriteAllText(pathSeriesJson, updatedJson);
 		}
+
+        public static void DeleteSerie(SerieModel model)
+        {
+            //Je récupère tous mes liens
+            var allSeries = GetAllSeries();
+
+            //Je recherche tous les éléments avec un id différent de mon élément à supprimer
+            //On fait la même liste, mais avec notre élément en moins
+            var newListOfAllSeries = allSeries.Where(serie => serie.Id != model.Id).ToList();
+
+            //allLinks -> JSON
+            string updatedJson = JsonSerializer.Serialize(newListOfAllSeries);
+
+            //JSON -> Ecraser le fichier
+            File.WriteAllText(pathSeriesJson, updatedJson);
+        }
 	}
 }

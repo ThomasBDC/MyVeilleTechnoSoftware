@@ -77,8 +77,8 @@ void App()
             //Récupérer les liens liés à cette série, et les afficher
             if (selectSerie != null)
             {
-                var linksSeries = LinksRepository.GetAllLinks().Where(link => link.IdSerie == selectSerie.Id).ToList();
-			    var selectLinkFromSeries = LinksHMI.ProposeToUserToSelectLink(linksSeries);
+                //Demander à l'utilisateur ce qu'il veut faire de cette série
+                SeriesHMI.SerieDetailMenu(selectSerie);
 			}
 
 			break;

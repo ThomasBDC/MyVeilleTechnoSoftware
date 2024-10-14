@@ -54,5 +54,45 @@ namespace MyVeilleTechnoSoftware.Hmi
             Console.WriteLine("");
             Console.WriteLine("");
         }
+
+        internal static void SerieDetailMenu(SerieModel selectSerie)
+        {
+            bool wantToGoBackToSearch = false;
+
+            ShowSerieSelected(selectSerie);
+
+            Console.WriteLine("Que voulez-vous faire ? ");
+            Console.WriteLine("1 - Voir les liens de la série");
+            Console.WriteLine("2 - Supprimer la série");
+            Console.WriteLine("300 - Retour");
+
+            string response = Console.ReadLine();
+
+            switch (response)
+            {
+                case "1":
+                    var linksSeries = LinksRepository.GetAllLinks().Where(link => link.IdSerie == selectSerie.Id).ToList();
+                    var selectLinkFromSeries = LinksHMI.ProposeToUserToSelectLink(linksSeries);
+                    break;
+                case "2":
+                    SeriesRepository.DeleteSerie(selectSerie);
+                    Console.WriteLine("La série a bien été supprimée");
+                    break;
+                default:
+                    //passe rien, donc on passe à la suite
+                    break;
+            }
+        }
+
+        private static void ShowSerieSelected(SerieModel selectSerie)
+        {
+            Console.Clear();
+            Console.WriteLine("Série sélectionnée : " + selectSerie.Title);
+            Console.WriteLine("");
+
+            Console.WriteLine("Description : " + selectSerie.Description);
+            Console.WriteLine("");
+            Console.WriteLine("");
+        }
     }
 }
