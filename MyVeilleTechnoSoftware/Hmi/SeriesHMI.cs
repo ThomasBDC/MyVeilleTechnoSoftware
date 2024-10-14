@@ -73,6 +73,11 @@ namespace MyVeilleTechnoSoftware.Hmi
                 case "1":
                     var linksSeries = LinksRepository.GetAllLinks().Where(link => link.IdSerie == selectSerie.Id).ToList();
                     var selectLinkFromSeries = LinksHMI.ProposeToUserToSelectLink(linksSeries);
+
+                    if (selectLinkFromSeries != null)
+                    {
+                        LinksHMI.LinkDetailMenu(selectLinkFromSeries);
+                    }
                     break;
                 case "2":
                     SeriesRepository.DeleteSerie(selectSerie);
